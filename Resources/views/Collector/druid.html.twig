@@ -1,0 +1,105 @@
+{% extends 'WebProfilerBundle:Profiler:layout.html.twig' %}
+
+{% block toolbar %}
+    {% set icon %}
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="24px" x="0px" y="0px"
+             viewBox="0 0 339 248.8" style="enable-background:new 0 0 339 248.8;" xml:space="preserve">
+        <style type="text/css">
+            .st0{fill:#AAAAAA;}
+        </style>
+        <g>
+            <path class="st0" d="M173.9,0.1c21.2,0,42.3-0.3,63.5,0.1c25.7,0.5,48.8,8.7,68.2,25.8c22.6,19.9,33.3,45.6,33.5,75.3
+                c0.2,33.5-9,64.5-28.9,91.8c-21.7,29.8-51.4,47-87.5,52.7c-14.4,2.3-29.2,2.1-43.8,2.7c-5.4,0.2-8.3-2.8-8.3-7.2
+                c0-4.4,3.2-7.2,8.4-7.1c16,0.2,32,0,47.7-4c43.6-11.2,75.1-36.4,90.4-79.6c7.5-21.2,9.9-43.2,6.2-65.5c-6.5-38.1-38.6-67-77.6-69.9
+                c-12.1-0.9-24.3-0.8-36.5-0.8c-34.2-0.1-68.3,0-102.5,0c-1.7,0-3.3,0.1-5-0.1c-4.1-0.5-6.4-2.9-6.4-6.9c0-4,2-6.7,6.2-7.1
+                c2.6-0.3,5.3-0.2,8-0.2C130.9,0,152.4,0,173.9,0.1C173.9,0.1,173.9,0.1,173.9,0.1z"/>
+            <path class="st0" d="M132.3,191.1c-24.2,0-48.3,0-72.5,0c-1.8,0-3.7,0.1-5.5-0.3c-3.6-0.9-5.8-3.6-5-7c0.6-2.5,2.9-4.9,5.1-6.4
+                c1.5-1,4.2-0.6,6.3-0.6c45.6,0,91.3,0,136.9,0c15.9,0,30.9-2.9,43.5-13.3c17.9-14.9,25.4-34.4,23.1-57.3
+                c-1.9-19.1-18.8-33.6-39.1-34c-22.1-0.4-44.3-0.2-66.5-0.2c-26,0-52,0-78,0c-2,0-4.5,0.3-5.8-0.8c-2.1-1.7-4.7-4.6-4.5-6.7
+                c0.3-2.4,3.3-4.7,5.5-6.6c0.8-0.7,2.6-0.3,3.9-0.3c47.3,0,94.6-0.1,141.9,0c18.7,0,34.5,6.8,46.2,21.7c10.7,13.6,12.6,29.4,10.1,46
+                c-6,39.1-35.9,65.3-75.4,65.8C179.3,191.3,155.8,191.1,132.3,191.1C132.3,191.1,132.3,191.1,132.3,191.1z"/>
+            <path class="st0" d="M24.4,57.4c5.5,0,11-0.1,16.5,0c5,0.1,8.1,2.7,8.3,6.8c0.2,4.2-3,7.3-8.2,7.4C30,71.7,19,71.7,8,71.5
+                c-4.9-0.1-8-3.1-8-7.1c0-4,3.1-7,8-7.1C13.5,57.2,19,57.4,24.4,57.4z"/>
+            <path class="st0" d="M125.9,234.3c5,0,10-0.1,15,0c4.9,0.1,8,2.9,8.1,7c0.1,4.2-2.8,7.3-7.7,7.4c-10.3,0.2-20.7,0.2-31,0
+                c-5-0.1-7.8-2.9-7.8-7.2c0-4.3,3.2-7.1,8.4-7.2C115.9,234.2,120.9,234.3,125.9,234.3z"/>
+        </g>
+        </svg>
+        <span class="sf-toolbar-status">{{ collector.queryCount }}</span>
+    {% endset %}
+    {% set text %}
+        <div class="sf-toolbar-info-piece">
+            <b>Queries</b>
+            <span>{{ collector.queryCount }}</span>
+        </div>
+        <div class="sf-toolbar-info-piece">
+            <b>Query time</b>
+            <span>{{ '%0.0f'|format(collector.queryDuration * 1000) }} ms</span>
+        </div>
+    {% endset %}
+    {% include 'WebProfilerBundle:Profiler:toolbar_item.html.twig' with { 'link': profiler_url } %}
+{% endblock %}
+
+{% block menu %}
+<span class="label">
+    <span class="icon">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="24px" x="0px" y="0px"
+             viewBox="0 0 339 248.8" style="enable-background:new 0 0 339 248.8;" xml:space="preserve">
+        <style type="text/css">
+            .st0{fill:#AAAAAA;}
+        </style>
+        <g>
+            <path class="st0" d="M173.9,0.1c21.2,0,42.3-0.3,63.5,0.1c25.7,0.5,48.8,8.7,68.2,25.8c22.6,19.9,33.3,45.6,33.5,75.3
+                c0.2,33.5-9,64.5-28.9,91.8c-21.7,29.8-51.4,47-87.5,52.7c-14.4,2.3-29.2,2.1-43.8,2.7c-5.4,0.2-8.3-2.8-8.3-7.2
+                c0-4.4,3.2-7.2,8.4-7.1c16,0.2,32,0,47.7-4c43.6-11.2,75.1-36.4,90.4-79.6c7.5-21.2,9.9-43.2,6.2-65.5c-6.5-38.1-38.6-67-77.6-69.9
+                c-12.1-0.9-24.3-0.8-36.5-0.8c-34.2-0.1-68.3,0-102.5,0c-1.7,0-3.3,0.1-5-0.1c-4.1-0.5-6.4-2.9-6.4-6.9c0-4,2-6.7,6.2-7.1
+                c2.6-0.3,5.3-0.2,8-0.2C130.9,0,152.4,0,173.9,0.1C173.9,0.1,173.9,0.1,173.9,0.1z"/>
+            <path class="st0" d="M132.3,191.1c-24.2,0-48.3,0-72.5,0c-1.8,0-3.7,0.1-5.5-0.3c-3.6-0.9-5.8-3.6-5-7c0.6-2.5,2.9-4.9,5.1-6.4
+                c1.5-1,4.2-0.6,6.3-0.6c45.6,0,91.3,0,136.9,0c15.9,0,30.9-2.9,43.5-13.3c17.9-14.9,25.4-34.4,23.1-57.3
+                c-1.9-19.1-18.8-33.6-39.1-34c-22.1-0.4-44.3-0.2-66.5-0.2c-26,0-52,0-78,0c-2,0-4.5,0.3-5.8-0.8c-2.1-1.7-4.7-4.6-4.5-6.7
+                c0.3-2.4,3.3-4.7,5.5-6.6c0.8-0.7,2.6-0.3,3.9-0.3c47.3,0,94.6-0.1,141.9,0c18.7,0,34.5,6.8,46.2,21.7c10.7,13.6,12.6,29.4,10.1,46
+                c-6,39.1-35.9,65.3-75.4,65.8C179.3,191.3,155.8,191.1,132.3,191.1C132.3,191.1,132.3,191.1,132.3,191.1z"/>
+            <path class="st0" d="M24.4,57.4c5.5,0,11-0.1,16.5,0c5,0.1,8.1,2.7,8.3,6.8c0.2,4.2-3,7.3-8.2,7.4C30,71.7,19,71.7,8,71.5
+                c-4.9-0.1-8-3.1-8-7.1c0-4,3.1-7,8-7.1C13.5,57.2,19,57.4,24.4,57.4z"/>
+            <path class="st0" d="M125.9,234.3c5,0,10-0.1,15,0c4.9,0.1,8,2.9,8.1,7c0.1,4.2-2.8,7.3-7.7,7.4c-10.3,0.2-20.7,0.2-31,0
+                c-5-0.1-7.8-2.9-7.8-7.2c0-4.3,3.2-7.1,8.4-7.2C115.9,234.2,120.9,234.3,125.9,234.3z"/>
+        </g>
+        </svg>
+    </span>
+    <strong>Druid</strong>
+    <span class="count">
+        <span>{{ collector.queryCount }}</span>
+        <span>{{ '%0.0f'|format(collector.queryDuration * 1000) }} ms</span>
+    </span>
+</span>
+{% endblock %}
+
+{% block panel %}
+    <h2>Queries</h2>
+
+    {% if collector.queries is empty %}
+        <div class="empty">
+            <p>No Druid queries were performed.</p>
+        </div>
+    {% else %}
+    {% for query in collector.queries %}
+        <table class="alt queries-table">
+            <thead>
+            <tr>
+                <th class="nowrap" onclick="javascript:sortTable(this, 0, 'queries-{{ loop.index }}')" data-sort-direction="-1" style="cursor: pointer;">#<span class="text-muted">&#9650;</span></th>
+                <th class="nowrap" onclick="javascript:sortTable(this, 1, 'queries-{{ loop.index }}')" style="cursor: pointer;">Time<span></span></th>
+                <th style="width: 100%;">Info</th>
+            </tr>
+            </thead>
+            <tbody id="queries-{{ loop.index }}">
+                <tr id="queryNo-{{ i }}-{{ loop.parent.loop.index }}">
+                    <td>{{ loop.index }}</td>
+                    <td class="nowrap">{{ '%0.2f'|format(query.duration * 1000) }}&nbsp;ms</td>
+                    <td>
+                        {{ query.query }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {% endfor %}
+    {% endif %}
+{% endblock %}

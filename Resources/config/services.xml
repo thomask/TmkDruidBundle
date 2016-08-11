@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="tmk_druid.logger" class="Tmk\DruidBundle\Logger\DruidLogger" />
+
+        <service id="tmk_druid.driver.guzzle" class="Druid\Driver\Guzzle\Driver" />
+
+        <service id="tmk_druid.driver.guzzle.wrapped" class="Tmk\DruidBundle\Driver\DriverWrapper">
+            <argument type="service" id="tmk_druid.driver.guzzle" />
+            <argument type="service" id="tmk_druid.logger" />
+        </service>
+
+        <service id="tmk_druid.client" class="Druid\Druid">
+            <argument type="service" id="tmk_druid.driver.guzzle.wrapped" />
+            <argument type="collection">
+                <argument key="scheme">%tmk_druid.scheme%</argument>
+                <argument key="host">%tmk_druid.host%</argument>
+                <argument key="port">%tmk_druid.port%</argument>
+                <argument key="path">%tmk_druid.path%</argument>
+                <argument key="proxy">%tmk_druid.proxy%</argument>
+            </argument>
+        </service>
+
+        <service id="tmk_druid.data_collector" class="Tmk\DruidBundle\DataCollector\DruidDataCollector" public="false">
+            <tag name="data_collector" template="TmkDruidBundle:Collector:druid" id="druid" />
+            <argument type="service" id="tmk_druid.logger" />
+        </service>
+    </services>
+
+</container>

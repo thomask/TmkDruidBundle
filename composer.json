@@ -1,0 +1,20 @@
+{
+    "name": "thomask/druid-bundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thomas van der Kleij",
+            "email": "thomasvanderkleij@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.0",
+        "pixelfederation/druid-php" : ">1.0 <2"
+    },
+    "autoload": {
+        "psr-0": { "Tmk\\DruidBundle": "" }
+    },
+    "target-dir": "Tmk/DruidBundle"
+}
