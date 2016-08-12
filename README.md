@@ -31,6 +31,3 @@ tmk_druid:
 ## Usage
 
 This bundle creates the `tmk_druid.client` service. You can refer to the [Druid PHP docs](https://github.com/pixelfederation/druid-php) for further reference.
-
-## Todo
-* Write tests
