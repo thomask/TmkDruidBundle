@@ -11,7 +11,7 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=7.0",
-        "pixelfederation/druid-php" : ">1.0 <2"
+        "pixelfederation/druid-php" : "dev-master#df375228405957cec61fad7973c96a02e380ca61"
     },
     "autoload": {
         "psr-0": { "Tmk\\DruidBundle": "" }
