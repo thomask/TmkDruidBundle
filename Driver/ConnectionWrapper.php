@@ -37,11 +37,11 @@ class ConnectionWrapper implements DriverConnectionInterface
      */
     public function send(QueryInterface $query)
     {
-        $time_start = microtime(true);
+        $timeStart = microtime(true);
         $result = $this->__call('send', [$query]);
-        $time_end = microtime(true);
+        $timeEnd = microtime(true);
 
-        $time = $time_end - $time_start;
+        $time = $timeEnd - $timeStart;
         $this->logger->log($query, $time);
 
         return $result;
