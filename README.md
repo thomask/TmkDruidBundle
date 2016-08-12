@@ -2,7 +2,7 @@
 
 ## About ##
 
-This bundle integrates [Druid PHP](https://github.com/pixelfederation/druid-php) into your Symfony2 application.
+This bundle integrates [Druid PHP](https://github.com/pixelfederation/druid-php) into your Symfony2 application. It exposes the library as a service and includes a data collector that adds information about performed queries to the Symfony profiler.
 
 ## Instalation
 
