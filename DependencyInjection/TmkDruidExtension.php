@@ -25,10 +25,10 @@ class TmkDruidExtension extends Extension
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
 
-        $container->setParameter('tmk_druid.scheme', $config['scheme']);
-        $container->setParameter('tmk_druid.host', $config['host']);
-        $container->setParameter('tmk_druid.port', $config['port']);
-        $container->setParameter('tmk_druid.path', $config['path']);
-        $container->setParameter('tmk_druid.proxy', $config['proxy']);
+        $container->setParameter('tmk_druid.default_driver', $config['default_driver']);
+
+        foreach ($config['drivers'] as $name => $options) {
+            $container->setParameter("tmk_druid.drivers.{$name}.options", $options);
+        }
     }
 }

@@ -16,13 +16,7 @@
 
         <service id="tmk_druid.client" class="Druid\Druid">
             <argument type="service" id="tmk_druid.driver.guzzle.wrapped" />
-            <argument type="collection">
-                <argument key="scheme">%tmk_druid.scheme%</argument>
-                <argument key="host">%tmk_druid.host%</argument>
-                <argument key="port">%tmk_druid.port%</argument>
-                <argument key="path">%tmk_druid.path%</argument>
-                <argument key="proxy">%tmk_druid.proxy%</argument>
-            </argument>
+            <argument>%tmk_druid.drivers.guzzle.options%</argument>
         </service>
 
         <service id="tmk_druid.data_collector" class="Tmk\DruidBundle\DataCollector\DruidDataCollector" public="false">

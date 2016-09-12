@@ -21,11 +21,14 @@ Put the following into your composer.json
 
 ```yaml
 tmk_druid:
-    scheme: http
-    host: localhost
-    port: 8082
-    path: /druid/v2
-    proxy: null
+    drivers:
+        guzzle:
+            scheme: http
+            host: localhost
+            port: 8082
+            path: /druid/v2
+            proxy: null
+            timeout: null
 ```
 
 ## Usage
